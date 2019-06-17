@@ -1,0 +1,47 @@
+<head>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <style>
+        .card-image{
+        height: 300px; /* Your height here */
+        overflow: hidden;
+}
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper blue darken-3">
+            <div class="container">
+                <a class="left brand-logo">Home</a>
+                <ul id="nav-mobile" class="right">
+                    <li class="active"><a href={% url 'image_list' %}>Home</a></li>
+                    <li><a href={% url 'upload' %}>Upload</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            {% if object_list %}
+                {% for image in object_list %}
+                <div class="col s12 l6 xl4">
+                    <div class="card">
+                        <div class="card-image">
+                            <img class="responsive-img" src="{{ image.img.url }}" alt="img">
+                        </div>
+                        <div class="card-content">
+                            <a href="{% url 'image_detail' image.id %}" class="waves-effect waves-light btn blue darken-3">Detail</a>
+                            <a href="{% url 'image_delete' image.id %}" class="right waves-effect waves-light btn red darken-3">Delete</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <p class="center-align"><b>No images to display</b></p>
+            {% endif %}
+        </div>
+    </div>
+</body>
