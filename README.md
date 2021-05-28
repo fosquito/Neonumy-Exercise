@@ -1,5 +1,4 @@
 # Neonumy-Exercise
-This project was developed by Nuno Pires at the Neonumy company's request.
 This is an webApp that can upload images. It can see the images like thumbnail, with more detail and delete them.
 
 I used Windows SO to develope this web site. So the next instructions are for Windows.
